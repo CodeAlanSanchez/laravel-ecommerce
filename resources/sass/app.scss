@@ -17,7 +17,7 @@
 ::selection,
 ::-moz-selection,
 ::-webkit-selection {
-    background: $blue;
+    background: $secondary;
     color: $textColor;
 }
 
@@ -29,4 +29,9 @@ html {
     font-size: 62.5%;
     scroll-behavior: smooth;
     background: $background;
+}
+
+.categories {
+    padding: 25px;
+    background: $foreground;
 }

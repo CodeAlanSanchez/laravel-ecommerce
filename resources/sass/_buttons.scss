@@ -5,7 +5,7 @@
     background: $color;
     padding: 10px 15px;
     &:hover {
-        background: darken($color, $amount: 5);
+        background: darken($color, $amount: 10);
     }
     &.outline {
         color: $color;
@@ -46,6 +46,15 @@
     &.lg.link {
         padding: 13px 18px;
     }
+    &.fullwidth {
+        width: 100%;
+    }
+    &.left {
+        text-align: left;
+    }
+    &.right {
+        text-align: right;
+    }
 }
 
 button.primary {
@@ -58,4 +67,17 @@ button.secondary {
 
 button.link {
     @include button($blue);
+}
+
+button.dark {
+    @include button($black);
+    color: $default;
+}
+
+button.light {
+    @include button($default);
+    color: $black;
+    &:hover {
+        background: $secondary;
+    }
 }
