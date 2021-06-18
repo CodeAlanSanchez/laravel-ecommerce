@@ -1,0 +1,25 @@
+@mixin product() {
+    font-size: 2.2rem;
+    text-align: center;
+    padding: 25px;
+    .name {
+        color: $textColor;
+    }
+    .price {
+        color: $primary;
+    }
+    &:hover {
+        background: $foreground;
+        box-shadow: 0 0 2px 2px #00000030;
+        transition: all 0.5s cubic-bezier(0.1, 0.75, 0.2, 1.5);
+    }
+}
+
+.productList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.product {
+    @include product();
+}

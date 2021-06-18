@@ -5,6 +5,7 @@
     padding: 0 10%;
     min-height: 60px;
     background-color: $foreground;
+    box-shadow: 0 0 2px 2px #00000030;
     ul {
         display: flex;
         align-items: center;
@@ -16,13 +17,13 @@
             display: inline-block;
             font-size: 2rem;
             margin-right: 3%;
-            a:hover {
-                color: darken($color, $amount: 10);
-                border-bottom: 2px $color solid;
-                border-top: 2px #ffffff00 solid;
-            }
             a:visited {
                 color: $color;
+            }
+            a:hover {
+                color: darken($color, $amount: 10);
+                border-bottom: 2px darken($color, $amount: 10) solid;
+                border-top: 2px #ffffff00 solid;
             }
             a.visited.active,
             a.active {
