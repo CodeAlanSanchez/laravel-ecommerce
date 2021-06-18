@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito");
+
+@import "_variables";
+
+@import "_buttons";
+@import "_navbars";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+::selection,
+::-moz-selection,
+::-webkit-selection {
+    background: $blue;
+    color: $textColor;
+}
+
+:focus {
+    color: $blue;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    background: $background;
+}

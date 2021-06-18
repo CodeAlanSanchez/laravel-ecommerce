@@ -1,0 +1,198 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito);
+button.primary {
+  font-size: 2rem;
+  cursor: pointer;
+  color: #ffffff;
+  background: #d62020;
+  padding: 10px 15px;
+}
+button.primary:hover {
+  background: #c01d1d;
+}
+button.primary.outline {
+  color: #d62020;
+  border: 2px solid #d62020;
+  padding: 8px 13px;
+  background: #ffffff00;
+}
+button.primary.outline:hover {
+  color: #c01d1d;
+  border: 2px solid #c01d1d;
+}
+button.primary.sm {
+  font-size: 1.6rem;
+  padding: 8px 12px;
+}
+button.primary.lg {
+  font-size: 2.4rem;
+  padding: 15px 20px;
+}
+button.primary.rounded {
+  border-radius: 10px;
+}
+button.primary.link {
+  color: #d62020;
+  padding: 8px 13px;
+  border: 2px solid #d62020;
+  background: #ffffff00;
+}
+button.primary.link:hover {
+  color: #931616;
+  border: 2px solid #931616;
+}
+button.primary.sm.outline, button.primary.sm.link {
+  padding: 6px 10px;
+}
+button.primary.lg.outline, button.primary.lg.link {
+  padding: 13px 18px;
+}
+
+button.secondary {
+  font-size: 2rem;
+  cursor: pointer;
+  color: #ffffff;
+  background: #fd8888;
+  padding: 10px 15px;
+}
+button.secondary:hover {
+  background: #fd6f6f;
+}
+button.secondary.outline {
+  color: #fd8888;
+  border: 2px solid #fd8888;
+  padding: 8px 13px;
+  background: #ffffff00;
+}
+button.secondary.outline:hover {
+  color: #fd6f6f;
+  border: 2px solid #fd6f6f;
+}
+button.secondary.sm {
+  font-size: 1.6rem;
+  padding: 8px 12px;
+}
+button.secondary.lg {
+  font-size: 2.4rem;
+  padding: 15px 20px;
+}
+button.secondary.rounded {
+  border-radius: 10px;
+}
+button.secondary.link {
+  color: #fd8888;
+  padding: 8px 13px;
+  border: 2px solid #fd8888;
+  background: #ffffff00;
+}
+button.secondary.link:hover {
+  color: #fc3d3d;
+  border: 2px solid #fc3d3d;
+}
+button.secondary.sm.outline, button.secondary.sm.link {
+  padding: 6px 10px;
+}
+button.secondary.lg.outline, button.secondary.lg.link {
+  padding: 13px 18px;
+}
+
+button.link {
+  font-size: 2rem;
+  cursor: pointer;
+  color: #ffffff;
+  background: #49a2dd;
+  padding: 10px 15px;
+}
+button.link:hover {
+  background: #3497d9;
+}
+button.link.outline {
+  color: #49a2dd;
+  border: 2px solid #49a2dd;
+  padding: 8px 13px;
+  background: #ffffff00;
+}
+button.link.outline:hover {
+  color: #3497d9;
+  border: 2px solid #3497d9;
+}
+button.link.sm {
+  font-size: 1.6rem;
+  padding: 8px 12px;
+}
+button.link.lg {
+  font-size: 2.4rem;
+  padding: 15px 20px;
+}
+button.link.rounded {
+  border-radius: 10px;
+}
+button.link.link {
+  color: #49a2dd;
+  padding: 8px 13px;
+  border: 2px solid #49a2dd;
+  background: #ffffff00;
+}
+button.link.link:hover {
+  color: #227cb7;
+  border: 2px solid #227cb7;
+}
+button.link.sm.outline, button.link.sm.link {
+  padding: 6px 10px;
+}
+button.link.lg.outline, button.link.lg.link {
+  padding: 13px 18px;
+}
+
+nav {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  padding: 0 10%;
+  min-height: 60px;
+  background-color: #ffffff;
+}
+nav ul {
+  display: flex;
+  width: 100%;
+}
+nav ul li {
+  color: #fd8888;
+  list-style: none;
+  font-size: 2.4rem;
+  margin-right: 5%;
+}
+nav ul li:hover {
+  color: #fc5656;
+}
+nav ul li:last-child() {
+  float: right;
+  margin-right: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::-moz-selection {
+  background: #49a2dd;
+  color: #181818;
+}
+
+::selection,
+::-moz-selection,
+::-webkit-selection {
+  background: #49a2dd;
+  color: #181818;
+}
+
+:focus {
+  color: #49a2dd;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  background: #efefef;
+}

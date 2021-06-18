@@ -1,0 +1,30 @@
+@mixin navbar($color) {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    padding: 0 10%;
+    min-height: 60px;
+    background-color: $foreground;
+    ul {
+        display: flex;
+        width: 100%;
+        li {
+            color: $color;
+            list-style: none;
+            font-size: 2.4rem;
+            margin-right: 5%;
+            &:hover {
+                color: darken($color, $amount: 10);
+            }
+        }
+        li:last-child() {
+            float: right;
+            margin-right: 0;
+            // margin-left: 100%;
+        }
+    }
+}
+
+nav {
+    @include navbar($secondary);
+}

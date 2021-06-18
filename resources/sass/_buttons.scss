@@ -1,0 +1,61 @@
+@mixin button($color) {
+    font-size: 2rem;
+    cursor: pointer;
+    color: $default;
+    background: $color;
+    padding: 10px 15px;
+    &:hover {
+        background: darken($color, $amount: 5);
+    }
+    &.outline {
+        color: $color;
+        border: 2px solid $color;
+        padding: 8px 13px;
+        background: #ffffff00;
+    }
+    &.outline:hover {
+        color: darken($color, $amount: 5);
+        border: 2px solid darken($color, $amount: 5);
+    }
+    &.sm {
+        font-size: 1.6rem;
+        padding: 8px 12px;
+    }
+    &.lg {
+        font-size: 2.4rem;
+        padding: 15px 20px;
+    }
+    &.rounded {
+        border-radius: 10px;
+    }
+    &.link {
+        color: $color;
+        padding: 8px 13px;
+        border: 2px solid $color;
+        background: #ffffff00;
+    }
+    &.link:hover {
+        color: darken($color, $amount: 15);
+        border: 2px solid darken($color, $amount: 15);
+    }
+    &.sm.outline,
+    &.sm.link {
+        padding: 6px 10px;
+    }
+    &.lg.outline,
+    &.lg.link {
+        padding: 13px 18px;
+    }
+}
+
+button.primary {
+    @include button($primary);
+}
+
+button.secondary {
+    @include button($secondary);
+}
+
+button.link {
+    @include button($blue);
+}
