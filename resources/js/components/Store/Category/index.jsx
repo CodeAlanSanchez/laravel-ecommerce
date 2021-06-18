@@ -1,10 +1,12 @@
 import React from "react";
-import Store from "../Store";
 
 const index = () => {
     return (
         <div>
-            <Store />
+            <p>Shirts</p>
+            <p>Pants</p>
+            <p>Shoes</p>
+            <p>Glasses</p>
         </div>
     );
 };

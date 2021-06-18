@@ -1,34 +1,34 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const index = () => {
     return (
-        <nav className="">
-            <ul className="">
-                <li className="">
-                    <Link activeClassName to="/sale">
+        <nav>
+            <ul>
+                <li>
+                    <NavLink activeClassName="active" to="/sale">
                         SALE
-                    </Link>
+                    </NavLink>
                 </li>
-                <li className="">
-                    <Link activeClassName to="/">
+                <li>
+                    <NavLink activeClassName="active" exact={true} to="/">
                         SHOP
-                    </Link>
+                    </NavLink>
                 </li>
-                <li className="">
-                    <Link activeClassName to="/orders">
+                <li>
+                    <NavLink activeClassName="active" to="/orders">
                         ORDERS
-                    </Link>
+                    </NavLink>
                 </li>
-                <li className="">
-                    <Link activeClassName to="/cart">
+                <li>
+                    <NavLink activeClassName="active" to="/cart">
                         CART
-                    </Link>
+                    </NavLink>
                 </li>
-                <li className="">
-                    <Link activeClassName to="/account">
+                <li>
+                    <NavLink activeClassName="active" to="/account">
                         LOGIN / REGISTER
-                    </Link>
+                    </NavLink>
                 </li>
             </ul>
         </nav>
