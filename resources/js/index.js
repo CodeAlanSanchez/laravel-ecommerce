@@ -7,40 +7,13 @@ import Account from "./components/Account";
 import Support from "./components/Support";
 import Orders from "./components/Orders";
 import Cart from "./components/Cart";
+import Navbar from "./components/Navbar";
 import "../css/app.css";
 
 ReactDOM.render(
     <BrowserRouter>
         <div>
-            <nav className="">
-                <ul className="">
-                    <li className="">
-                        <Link className="nav-link" to="/">
-                            Home
-                        </Link>
-                    </li>
-                    <li className="">
-                        <Link className="nav-link" to="/support">
-                            Support
-                        </Link>
-                    </li>
-                    <li className="">
-                        <Link className="nav-link" to="/orders">
-                            Orders
-                        </Link>
-                    </li>
-                    <li className="">
-                        <Link className="nav-link" to="/cart">
-                            Cart
-                        </Link>
-                    </li>
-                    <li className="">
-                        <Link className="nav-link" to="/account">
-                            Account
-                        </Link>
-                    </li>
-                </ul>
-            </nav>
+            <Navbar />
 
             <Switch>
                 <Route exact path="/" component={Home} />
