@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 const index = () => {
@@ -6,27 +6,27 @@ const index = () => {
         <nav className="">
             <ul className="">
                 <li className="">
-                    <Link activeClassName="active" to="/sale">
+                    <Link activeClassName to="/sale">
                         SALE
                     </Link>
                 </li>
                 <li className="">
-                    <Link activeClassName="active" to="/">
+                    <Link activeClassName to="/">
                         SHOP
                     </Link>
                 </li>
                 <li className="">
-                    <Link activeClassName="active" to="/orders">
+                    <Link activeClassName to="/orders">
                         ORDERS
                     </Link>
                 </li>
                 <li className="">
-                    <Link activeClassName="active" to="/cart">
+                    <Link activeClassName to="/cart">
                         CART
                     </Link>
                 </li>
                 <li className="">
-                    <Link activeClassName="active" to="/account">
+                    <Link activeClassName to="/account">
                         LOGIN / REGISTER
                     </Link>
                 </li>
