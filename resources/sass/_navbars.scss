@@ -13,7 +13,8 @@
         li {
             color: $color;
             list-style: none;
-            font-size: 2.4rem;
+            display: inline-block;
+            font-size: 2rem;
             margin-right: 3%;
             a:hover {
                 color: darken($color, $amount: 10);
@@ -28,10 +29,6 @@
                 color: $textColor;
                 border-bottom: 2px $textColor solid;
             }
-        }
-        li:last-child() {
-            float: right;
-            margin-right: 0;
         }
     }
 }
