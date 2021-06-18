@@ -1,5 +1,23 @@
 .store {
     display: grid;
     grid-template-columns: 0.25fr 1fr;
+    grid-template-areas:
+        "header header"
+        "category products";
     padding: 25px;
+}
+
+.categories {
+    grid-area: category;
+}
+
+.productList {
+    grid-area: products;
+}
+
+.shopHeader {
+    grid-area: header;
+    font-size: 5.4rem;
+    font-weight: 400;
+    text-align: center;
 }
