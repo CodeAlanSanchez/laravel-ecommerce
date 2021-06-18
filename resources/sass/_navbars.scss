@@ -7,20 +7,31 @@
     background-color: $foreground;
     ul {
         display: flex;
+        align-items: center;
         width: 100%;
+        min-height: 60px;
         li {
             color: $color;
             list-style: none;
             font-size: 2.4rem;
-            margin-right: 5%;
-            &:hover {
+            margin-right: 3%;
+            a:hover {
                 color: darken($color, $amount: 10);
+                border-bottom: 2px $color solid;
+                border-top: 2px #ffffff00 solid;
+            }
+            a:visited {
+                color: $color;
+            }
+            a.visited.active,
+            a.active {
+                color: $textColor;
+                border-bottom: 2px $textColor solid;
             }
         }
         li:last-child() {
             float: right;
             margin-right: 0;
-            // margin-left: 100%;
         }
     }
 }
