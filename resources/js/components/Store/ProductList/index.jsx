@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Product from "./Product";
+import axios from "axios";
 
 const index = () => {
+    const [products, setProducts] = useState({});
+
+    const fetchProducts = async () => {
+        const { data } = await axios.get("/api/products");
+        setProducts(data);
+    };
+
+    useEffect(() => {
+        fetchProducts();
+    }, []);
+
     return (
         <div className="productList">
+            {console.log(products)}
             <Product
                 product={{
                     name: "Ruby Dress",
