@@ -1,0 +1,26 @@
+.account {
+    background: $foreground;
+    display: grid;
+    grid-template-columns: 0.2fr 1fr;
+    grid-template-areas:
+        "heading productsHeading"
+        "info products";
+    margin: 3% 5%;
+    padding: 25px;
+    .heading {
+        grid-area: heading;
+    }
+    .products-heading {
+        grid-area: productsHeading;
+        vertical-align: bottom;
+    }
+    .account-info {
+        grid-area: info;
+        margin: 0 0 20px;
+    }
+    .products {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 300px));
+        grid-area: products;
+    }
+}
