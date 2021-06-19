@@ -16,7 +16,6 @@ const index = () => {
 
     return (
         <div className="productList">
-            {console.log(products)}
             <Product
                 product={{
                     name: "Ruby Dress",
