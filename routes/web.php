@@ -13,9 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/api/products', [App\Http\Controllers\ProductsController::class, 'store']);
-Route::get('/api/products', [App\Http\Controllers\ProductsController::class, 'index']);
-
 Route::fallback(function () {
     return view('home');
 });

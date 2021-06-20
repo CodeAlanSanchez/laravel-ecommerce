@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::post('register', [App\Http\Controllers\ProductsController::class, 'register']);
+Route::post('login', [App\Http\Controllers\ProductsController::class, 'authenticate']);
+Route::get('login', [App\Http\Controllers\ProductsController::class, 'index']);
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
