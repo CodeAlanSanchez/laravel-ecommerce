@@ -1,20 +1,27 @@
 import React from "react";
+import Product from "../Store/ProductList/Product";
 
 const index = () => {
     return (
         <div className="account">
-            <h1 className="heading">Account</h1>
-            <h3 className="productsHeading">Your Products</h3>
             <div className="account-info">
+                <h1 className="account-heading">Account</h1>
                 <h4 className="name subheading">Name</h4>
-                <h6 className="name">Alan</h6>
+                <h6 className="name">null</h6>
                 <h4 className="email subheading">Email</h4>
-                <h6 className="email">someone@gmail.com</h6>
+                <h6 className="email">null</h6>
                 <button className="sm primary">Log Out</button>
             </div>
-            <div className="products">
-                <div className="product">
-                    <h3>T-Shirt</h3>
+            <div className="account-products">
+                <h1 className="products-heading">Your Products</h1>
+                <div className="products">
+                    <Product
+                        product={{
+                            name: "t-shirt",
+                            price: 3.99,
+                            image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.dmhj_kaUiOor-V2S-gqCwQHaLH%26pid%3DApi&f=1",
+                        }}
+                    ></Product>
                 </div>
             </div>
         </div>
