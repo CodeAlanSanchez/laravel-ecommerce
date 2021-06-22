@@ -20,10 +20,18 @@
     &.sm {
         font-size: 1.6rem;
         padding: 8px 12px;
+        &.outline,
+        &.link {
+            padding: 6px 10px;
+        }
     }
     &.lg {
         font-size: 2.4rem;
         padding: 15px 20px;
+        &.outline,
+        &.link {
+            padding: 13px 18px;
+        }
     }
     &.rounded {
         border-radius: 10px;
@@ -33,18 +41,18 @@
         padding: 8px 13px;
         border: 2px solid $color;
         background: #ffffff00;
+        &:hover {
+            color: darken($color, $amount: 15);
+            border: 2px solid darken($color, $amount: 15);
+        }
     }
-    &.link:hover {
-        color: darken($color, $amount: 15);
-        border: 2px solid darken($color, $amount: 15);
-    }
-    &.sm.outline,
-    &.sm.link {
-        padding: 6px 10px;
-    }
-    &.lg.outline,
-    &.lg.link {
-        padding: 13px 18px;
+    &.text {
+        border: none;
+        padding: 0;
+        &:hover {
+            color: darken($color, $amount: 15);
+            border: none;
+        }
     }
     &.fullwidth {
         width: 100%;
