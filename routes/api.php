@@ -18,9 +18,6 @@ Route::post('register', [App\Http\Controllers\UsersController::class, 'register'
 Route::post('login', [App\Http\Controllers\UsersController::class, 'authenticate']);
 
 Route::group(['middleware' => ['jwt.verify']], function () {
-    Route::get('user', 'UserController@getAuthenticatedUser');
-});
-
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+    Route::get('user', [App\Http\Controllers\UsersController::class, 'getAuthenticatedUser']);
+    Route::post('product', [App\Http\Controllers\ProductsController::class, 'store']);
 });
