@@ -22,4 +22,48 @@
         grid-template-columns: repeat(auto-fit, minmax(100px, 300px));
         grid-area: products;
     }
+    &.formContainer {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        max-width: 400px;
+        h2 {
+            margin-bottom: 15px;
+        }
+        box-shadow: 0 0 25px 2px #00000020;
+    }
+}
+
+.accountForm {
+    background: $foreground;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    label {
+        font-size: 1.8rem;
+        color: $textColor;
+        &.required {
+            &::after {
+                content: "*";
+                color: $primary;
+            }
+        }
+    }
+    input {
+        border: 1px solid $textColor;
+        padding: 2%;
+        font-size: 1.8rem;
+        color: $textColor;
+        margin-bottom: 15px;
+        max-width: 250px;
+        &:focus {
+            outline: 1px solid $secondary;
+            border: 1px solid $secondary;
+        }
+    }
+    button {
+        margin-top: 15px;
+        max-width: 250px;
+    }
 }
