@@ -1,25 +1,51 @@
+import axios from "axios";
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const index = () => {
     const [form, setForm] = useState({
-        email: "",
         name: "",
+        email: "",
         password: "",
-        passwordConfirmation: "",
+        password_confirmation: "",
     });
     const [register, setRegister] = useState(true);
+    const history = useHistory();
+
+    const signup = async () => {
+        await axios
+            .post("/api/register", form)
+            .then((response) => console.log(response))
+            .catch((error) => console.log(error));
+    };
+
+    const signin = async () => {
+        await axios
+            .post("/api/login", form)
+            .then((response) => console.log(response))
+            .catch((error) => console.log(error));
+    };
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+        if (register) {
+            signup();
+        } else {
+            signin();
+        }
+        history.go(0);
+    };
 
     return (
         <div className="formContainer">
             <div className="accountForm">
                 <h2>{register ? "Register" : "Log In"}</h2>
-                <form action="POST" className="form">
+                <form className="form" onSubmit={(e) => onSubmit(e)}>
                     {register ? (
                         <>
                             <label className="required" htmlFor="name">
                                 Name
                             </label>
-                            <br />
                             <input
                                 name="name"
                                 id="name"
@@ -29,7 +55,6 @@ const index = () => {
                                     setForm({ ...form, name: e.target.value })
                                 }
                             />
-                            <br />
                         </>
                     ) : (
                         ""
@@ -37,7 +62,6 @@ const index = () => {
                     <label className="required" htmlFor="email">
                         Email
                     </label>
-                    <br />
                     <input
                         name="email"
                         id="email"
@@ -50,7 +74,6 @@ const index = () => {
                     <label className="required" htmlFor="password">
                         Password
                     </label>
-                    <br />
                     <input
                         name="password"
                         id="password"
@@ -64,20 +87,19 @@ const index = () => {
                         <>
                             <label
                                 className="required"
-                                htmlFor="passwordConfirmation"
+                                htmlFor="password_confirmation"
                             >
                                 Confirm Password
                             </label>
-                            <br />
                             <input
-                                name="passwordConfirmation"
-                                id="passwordConfirmation"
+                                name="password_confirmation"
+                                id="password_confirmation"
                                 type="text"
-                                value={form.passwordConfirmation}
+                                value={form.password_confirmation}
                                 onChange={(e) =>
                                     setForm({
                                         ...form,
-                                        passwordConfirmation: e.target.value,
+                                        password_confirmation: e.target.value,
                                     })
                                 }
                             />
@@ -87,7 +109,7 @@ const index = () => {
                     )}
 
                     <button className="primary" type="submit">
-                        Register
+                        {register ? "Register" : "Log In"}
                     </button>
                     <button
                         className="sm center link text"
