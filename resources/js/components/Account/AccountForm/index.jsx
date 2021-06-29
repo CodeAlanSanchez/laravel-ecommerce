@@ -10,19 +10,20 @@ const index = () => {
         password_confirmation: "",
     });
     const [register, setRegister] = useState(true);
+    const [account, setAccount] = useState({});
     const history = useHistory();
 
     const signup = async () => {
         await axios
             .post("/api/register", form)
-            .then((response) => console.log(response))
+            .then((response) => setAccount(response))
             .catch((error) => console.log(error));
     };
 
     const signin = async () => {
         await axios
             .post("/api/login", form)
-            .then((response) => console.log(response))
+            .then((response) => setAccount(response))
             .catch((error) => console.log(error));
     };
 
@@ -33,6 +34,8 @@ const index = () => {
         } else {
             signin();
         }
+        console.log(account);
+        localStorage.setItem("profile", JSON.stringify({ ...account }));
         history.go(0);
     };
 
