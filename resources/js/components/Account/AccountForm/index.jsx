@@ -16,15 +16,26 @@ const index = () => {
     const signup = async () => {
         await axios
             .post("/api/register", form)
-            .then((response) => setAccount(response))
+            .then((response) => {
+                setUser(response.data.user);
+                history.go(0);
+            })
             .catch((error) => console.log(error));
     };
 
     const signin = async () => {
         await axios
             .post("/api/login", form)
-            .then((response) => setAccount(response))
+            .then((response) => {
+                setUser(response.data.user);
+                history.go(0);
+            })
             .catch((error) => console.log(error));
+    };
+
+    const setUser = (user) => {
+        console.log(user);
+        localStorage.setItem("profile", JSON.stringify({ ...user }));
     };
 
     const onSubmit = (e) => {
@@ -34,9 +45,6 @@ const index = () => {
         } else {
             signin();
         }
-        console.log(account);
-        localStorage.setItem("profile", JSON.stringify({ ...account }));
-        history.go(0);
     };
 
     return (
