@@ -57,7 +57,9 @@ class ProductsController extends Controller
 
     public function productsByUser()
     {
-        $data = JWTAuth::user()->products();
+        $user = JWTAuth::user();
+
+        $data = Product::where('user_id', $user->id)->get();
 
         return response()->json(compact('data'));
     }
