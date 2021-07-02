@@ -17,24 +17,23 @@ const index = () => {
         await axios
             .post("/api/register", form)
             .then((response) => {
-                setUser(response.data.user);
+                setUser({ ...response.data.user, token: response.data.token });
                 history.go(0);
             })
-            .catch((error) => console.log(error));
+            .catch((error) => console.error(error));
     };
 
     const signin = async () => {
         await axios
             .post("/api/login", form)
             .then((response) => {
-                setUser(response.data.user);
+                setUser({ ...response.data.user, token: response.data.token });
                 history.go(0);
             })
-            .catch((error) => console.log(error));
+            .catch((error) => console.error(error));
     };
 
     const setUser = (user) => {
-        console.log(user);
         localStorage.setItem("profile", JSON.stringify({ ...user }));
     };
 
