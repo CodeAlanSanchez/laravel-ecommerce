@@ -10,7 +10,6 @@ const index = () => {
         password_confirmation: "",
     });
     const [register, setRegister] = useState(true);
-    const [account, setAccount] = useState({});
     const history = useHistory();
 
     const signup = async () => {
