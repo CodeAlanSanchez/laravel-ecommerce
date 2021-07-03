@@ -8,7 +8,15 @@ const index = ({ product }) => {
             </div>
             <div>
                 <p className="name">{product.name}</p>
-                <p className="price">${product.price}</p>
+
+                {product.discount > 0 ? (
+                    <p className="price">
+                        <span className="price old">${product.price}</span>
+                        &nbsp; ${product.discount}
+                    </p>
+                ) : (
+                    <p className="price">${product.price}</p>
+                )}
             </div>
         </a>
     );
