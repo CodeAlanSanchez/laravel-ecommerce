@@ -26,17 +26,16 @@ class ProductsController extends Controller
     {
         $data = request()->validate([
             'name' => 'required',
-            'image' => 'required',
+            'image' => 'required|image',
             'price' => 'required|numeric',
             'category' => 'required',
             'discount' => 'numeric',
         ]);
 
-        // $imagePath = request('image')->store('uploads', 'public');
-        $imagePath = "123";
+        $imagePath = request('image')->store('uploads', 'public');
 
-        // $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
-        // $image->save();
+        $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
+        $image->save();
 
         $user = JWTAuth::user();
 
@@ -55,11 +54,11 @@ class ProductsController extends Controller
     {
     }
 
-    public function productsByUser()
+    public function productsByUser(Request $request)
     {
-        $user = JWTAuth::user();
+        $id = $request->route('id');
 
-        $products = Product::where('user_id', $user->id)->get();
+        $products = Product::where('user_id', $id)->get();
 
         return response()->json(compact('products'));
     }
