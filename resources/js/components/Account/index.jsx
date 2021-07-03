@@ -3,10 +3,13 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import Product from "../Store/ProductList/Product";
 import AccountForm from "./AccountForm";
+import ProductForm from "../Store/ProductForm";
+import decode from "jwt-decode";
 
 const index = () => {
     const user = JSON.parse(localStorage.getItem("profile"));
-    const [products, setProducts] = useState({});
+    const [products, setProducts] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
     const history = useHistory();
 
     if (!user?.email) {
@@ -14,16 +17,28 @@ const index = () => {
     }
 
     const fetchProducts = async () => {
-        const { data } = await axios.get("api/products", {
-            headers: {
-                Authentication: "Bearer " + user.token,
-            },
-        });
-        setProducts(data);
+        await axios
+            .get(`api/${user?.id}/products`, {
+                headers: {
+                    Authorization: `Bearer ${user?.token}`,
+                },
+            })
+            .then((response) => {
+                setProducts(response.data.products);
+                setIsLoading(false);
+            })
+            .catch((error) => console.error(error));
     };
 
     useEffect(() => {
-        console.log(user);
+        const token = user?.token;
+        if (token) {
+            const decodedToken = decode(token);
+
+            if (decodedToken.exp * 1000 < new Date().getTime()) {
+                localStorage.setItem("profile", {});
+            }
+        }
         fetchProducts();
     }, []);
 
@@ -40,20 +55,26 @@ const index = () => {
                 <h6 className="name">{user?.name}</h6>
                 <h4 className="email subheading">Email</h4>
                 <h6 className="email">{user?.email}</h6>
-                <button className="sm primary" onClick={() => handleLogout()}>
+                <button
+                    className="sm primary"
+                    onClick={() => {
+                        handleLogout();
+                    }}
+                >
                     Log Out
                 </button>
             </div>
             <div className="account-products">
                 <h1 className="products-heading">Your Products</h1>
                 <div className="products">
-                    <Product
-                        product={{
-                            name: "t-shirt",
-                            price: 3.99,
-                            image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.dmhj_kaUiOor-V2S-gqCwQHaLH%26pid%3DApi&f=1",
-                        }}
-                    ></Product>
+                    <ProductForm />
+                    {!isLoading ? (
+                        products.map((product) => (
+                            <Product key={product.id} product={product} />
+                        ))
+                    ) : (
+                        <h4>Loading...</h4>
+                    )}
                 </div>
             </div>
         </div>
