@@ -14,11 +14,53 @@
     }
     .price {
         color: $primary;
+        &.old {
+            color: $oldPrice;
+            text-decoration: line-through;
+        }
     }
     &:hover {
         background: $foreground;
         box-shadow: 0 0 25px 2px #00000020;
         transition: all 0.5s cubic-bezier(0.1, 0.75, 0.2, 1.5);
+    }
+}
+
+@mixin productForm() {
+    border: #00000030 2px solid;
+    padding: 10px;
+    h5 {
+        margin-bottom: 25px;
+    }
+    form {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: end;
+    }
+    input {
+        border: 1px solid $textColor;
+        padding: 2%;
+        font-size: 1.8rem;
+        color: $textColor;
+        max-width: 250px;
+        margin-bottom: 15px;
+        &:focus {
+            outline: 1px solid $secondary;
+            border: 1px solid $secondary;
+        }
+    }
+    label {
+        font-size: 1.8rem;
+        width: 100%;
+        padding-left: 15px;
+        color: $textColor;
+        &.required {
+            &::after {
+                content: "*";
+                color: $primary;
+            }
+        }
     }
 }
 
@@ -29,4 +71,8 @@
 
 .product {
     @include product();
+}
+
+.productForm {
+    @include productForm();
 }
