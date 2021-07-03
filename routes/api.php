@@ -19,6 +19,6 @@ Route::post('login', [App\Http\Controllers\UsersController::class, 'authenticate
 
 Route::group(['middleware' => ['jwt.verify']], function () {
     Route::get('user', [App\Http\Controllers\UsersController::class, 'getAuthenticatedUser']);
-    Route::get('products', [App\Http\Controllers\ProductsController::class, 'productsByUser']);
+    Route::get('{id}/products', [App\Http\Controllers\ProductsController::class, 'productsByUser']);
     Route::post('products', [App\Http\Controllers\ProductsController::class, 'store']);
 });
