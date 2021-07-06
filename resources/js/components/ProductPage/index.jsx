@@ -4,6 +4,9 @@ import axios from "axios";
 const index = ({ match, location }) => {
     const [product, setProduct] = useState({});
     const [loading, setLoading] = useState(true);
+    const [user, setUser] = useState(
+        JSON.parse(localStorage.getItem("profile"))
+    );
     const {
         params: { productId },
     } = match;
@@ -11,7 +14,6 @@ const index = ({ match, location }) => {
     const fetchProduct = (id) => {
         axios.get("/api/products/" + id).then((response) => {
             setProduct(response.data.product);
-            console.log(response.data);
             setLoading(false);
         });
     };
@@ -32,7 +34,22 @@ const index = ({ match, location }) => {
                         <img src={product.image} alt="" />
                     </div>
                     <div className="info">
-                        <h2>{product.name}</h2>
+                        <h2>
+                            {product.name}
+                            {user?.id == product.user_id ? (
+                                <span>
+                                    &nbsp;
+                                    <a
+                                        href={`/product/${productId}/edit`}
+                                        className="link"
+                                    >
+                                        Edit Product
+                                    </a>
+                                </span>
+                            ) : (
+                                ""
+                            )}
+                        </h2>
                         {product.discount > 0 ? (
                             <p className="price">
                                 <span className="price old">
@@ -43,6 +60,9 @@ const index = ({ match, location }) => {
                         ) : (
                             <p className="price">${product.price}</p>
                         )}
+                        <button className="primary cart disabled" type="button">
+                            Add To Cart
+                        </button>
                     </div>
                 </div>
             )}
