@@ -7,7 +7,9 @@ import ProductForm from "../Store/ProductForm";
 import decode from "jwt-decode";
 
 const index = () => {
-    const user = JSON.parse(localStorage.getItem("profile"));
+    const [user, setUser] = useState(
+        JSON.parse(localStorage.getItem("profile"))
+    );
     const [products, setProducts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const history = useHistory();
@@ -31,12 +33,14 @@ const index = () => {
     };
 
     useEffect(() => {
+        setUser(JSON.parse(localStorage.getItem("profile")));
         const token = user?.token;
         if (token) {
             const decodedToken = decode(token);
 
             if (decodedToken.exp * 1000 < new Date().getTime()) {
-                localStorage.setItem("profile", {});
+                localStorage.setItem("profile", JSON.stringify("{}"));
+                history.go(0);
             }
         }
         fetchProducts();
@@ -56,7 +60,7 @@ const index = () => {
                 <h4 className="email subheading">Email</h4>
                 <h6 className="email">{user?.email}</h6>
                 <button
-                    className="sm primary"
+                    className="sm outline secondary"
                     onClick={() => {
                         handleLogout();
                     }}
