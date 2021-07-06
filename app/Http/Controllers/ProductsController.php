@@ -7,6 +7,9 @@ use App\Models\Product;
 use Intervention\Image\Facades\Image;
 use PhpParser\Node\Stmt\TryCatch;
 
+use Str;
+use Storage;
+
 use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Tymon\JWTAuth\Exceptions\TokenExpiredException;
@@ -26,16 +29,23 @@ class ProductsController extends Controller
     {
         $data = request()->validate([
             'name' => 'required',
-            'image' => 'required|image',
+            'image' => 'required',
             'price' => 'required|numeric',
             'category' => 'required',
             'discount' => 'numeric',
         ]);
 
-        $imagePath = request('image')->store('uploads', 'public');
+        if (preg_match('/^data:image\/(\w+);base64,/', $base64_image = request('image'))) {
+            $image = substr($base64_image, strpos($base64_image, ',') + 1);
 
-        $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
-        $image->save();
+            $image = base64_decode($image);
+
+            $imageName = Str::random(16);
+
+            Storage::disk('public')->put($imageName . ".png", $image);
+
+            $imagePath = Storage::url($imageName . ".png");
+        }
 
         $user = JWTAuth::user();
 
@@ -50,8 +60,13 @@ class ProductsController extends Controller
         return response()->json(compact('product'));
     }
 
-    public function create()
+    public function show()
     {
+        $id = request()->route('id');
+
+        $product = Product::find($id);
+
+        return response()->json(compact('product'));
     }
 
     public function productsByUser(Request $request)
