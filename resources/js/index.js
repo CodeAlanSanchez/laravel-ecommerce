@@ -8,6 +8,7 @@ import Support from "./components/Support";
 import Orders from "./components/Orders";
 import Cart from "./components/Cart";
 import Navbar from "./components/Navbar";
+import ProductPage from "./components/ProductPage";
 import "../css/app.css";
 
 ReactDOM.render(
@@ -21,6 +22,7 @@ ReactDOM.render(
                 <Route path="/orders" component={Orders} />
                 <Route path="/cart" component={Cart} />
                 <Route path="/account" component={Account} />
+                <Route path="/product/:productId" component={ProductPage} />
             </Switch>
         </div>
     </BrowserRouter>,
