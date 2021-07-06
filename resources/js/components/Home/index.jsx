@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Store from "../Store";
+import axios from "axios";
 
 const index = () => {
     return (
