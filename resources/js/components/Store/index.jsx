@@ -6,7 +6,7 @@ const index = () => {
     return (
         <div className="store">
             <h6 className="shopHeader">Products</h6>
-            <Category />
+            {/* <Category /> */}
             <ProductList />
         </div>
     );
