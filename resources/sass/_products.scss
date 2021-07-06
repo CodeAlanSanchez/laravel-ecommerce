@@ -27,7 +27,7 @@
 }
 
 @mixin productForm() {
-    border: #00000030 2px solid;
+    background: $background;
     padding: 10px;
     h5 {
         margin-bottom: 25px;
@@ -39,7 +39,7 @@
         justify-content: end;
     }
     input {
-        border: 1px solid $textColor;
+        border: 1px solid #00000030;
         padding: 2%;
         font-size: 1.8rem;
         color: $textColor;
@@ -64,9 +64,32 @@
     }
 }
 
-.productList {
+@mixin productPage() {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: 0.5fr 0.5fr;
+    margin-top: 100px;
+    .image {
+        display: flex;
+        justify-content: center;
+        img {
+            width: 50%;
+        }
+    }
+    .price {
+        color: $primary;
+        &.old {
+            color: $oldPrice;
+            text-decoration: line-through;
+        }
+    }
+    @media only screen and (max-width: 1200px) {
+        margin-top: 25px;
+        grid-template-columns: 1fr;
+        padding: 25px;
+        .image {
+            margin-bottom: 25px;
+        }
+    }
 }
 
 .product {
@@ -75,4 +98,8 @@
 
 .productForm {
     @include productForm();
+}
+
+.productPage {
+    @include productPage();
 }
