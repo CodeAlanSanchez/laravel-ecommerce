@@ -20,7 +20,6 @@ const index = () => {
                 },
             })
             .then((response) => {
-                console.log(response);
                 history.go(0);
             })
             .catch((error) => console.error(error));

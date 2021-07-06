@@ -3,7 +3,6 @@ import React from "react";
 const index = ({ product }) => {
     return (
         <a className="product" href={`/product/${product.id}`}>
-            {console.log(product)}
             <div className="image">
                 <img
                     className="image"
