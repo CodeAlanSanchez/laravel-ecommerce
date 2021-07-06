@@ -86,7 +86,7 @@ const index = () => {
                     <input
                         name="password"
                         id="password"
-                        type="text"
+                        type="password"
                         value={form.password}
                         onChange={(e) =>
                             setForm({ ...form, password: e.target.value })
@@ -103,7 +103,7 @@ const index = () => {
                             <input
                                 name="password_confirmation"
                                 id="password_confirmation"
-                                type="text"
+                                type="password"
                                 value={form.password_confirmation}
                                 onChange={(e) =>
                                     setForm({
