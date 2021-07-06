@@ -37,6 +37,23 @@ html {
     background: $foreground;
 }
 
-.account {
-    // display: ;
+a {
+    &.link {
+        color: $blue;
+        font-weight: 400;
+    }
+}
+
+input {
+    padding: 5px;
+    border: #00000030 1px solid;
+}
+
+.edit {
+    margin: 100px 0 0;
+    display: flex;
+    justify-content: center;
+    label {
+        padding-left: 2px;
+    }
 }
