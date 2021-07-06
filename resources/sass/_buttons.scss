@@ -63,6 +63,12 @@
     &.right {
         text-align: right;
     }
+    &.disabled {
+        cursor: not-allowed;
+        &:hover {
+            filter: brightness(200%) saturate(50%);
+        }
+    }
 }
 
 button.primary {
