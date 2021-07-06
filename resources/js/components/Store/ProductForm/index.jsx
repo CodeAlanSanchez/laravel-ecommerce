@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import FileBase64 from "react-file-base64";
 import axios from "axios";
 
 const index = () => {
@@ -23,10 +24,6 @@ const index = () => {
                 history.go(0);
             })
             .catch((error) => console.error(error));
-    };
-
-    const handleFile = (fileList) => {
-        setForm({ ...form, image: fileList[0] });
     };
 
     const handleSubmit = (e) => {
@@ -77,14 +74,12 @@ const index = () => {
                     placeholder="Category"
                 />
                 <label htmlFor="image">Image</label>
-                <input
+                <FileBase64
                     type="file"
-                    value={form.image}
-                    onChange={(e) => handleFile(e.target.files)}
-                    name="image"
-                    placeholder="Image"
-                />
-                <button className="sm primary outline" type="submit">
+                    multiple={false}
+                    onDone={({ base64 }) => setForm({ ...form, image: base64 })}
+                ></FileBase64>
+                <button className="sm secondary rounded" type="submit">
                     Add Product
                 </button>
             </form>
