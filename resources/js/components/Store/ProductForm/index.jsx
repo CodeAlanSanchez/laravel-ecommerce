@@ -33,7 +33,7 @@ const index = () => {
 
     return (
         <div className="productForm">
-            <h5 align="center">Add Product</h5>
+            <h4 align="center">Add Product</h4>
             <form onSubmit={(e) => handleSubmit(e)}>
                 <label htmlFor="name">Name</label>
                 <input

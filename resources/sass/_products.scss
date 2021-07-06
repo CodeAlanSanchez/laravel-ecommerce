@@ -27,8 +27,8 @@
 }
 
 @mixin productForm() {
-    background: $background;
     padding: 10px;
+    border: #00000030 1px solid;
     h5 {
         margin-bottom: 25px;
     }
@@ -68,6 +68,7 @@
     display: grid;
     grid-template-columns: 0.5fr 0.5fr;
     margin-top: 100px;
+    margin: 100px 5% 0;
     .image {
         display: flex;
         justify-content: center;
@@ -80,6 +81,13 @@
         &.old {
             color: $oldPrice;
             text-decoration: line-through;
+        }
+    }
+    .info {
+        padding: 5%;
+        background: $foreground;
+        .cart {
+            margin-top: 15px;
         }
     }
     @media only screen and (max-width: 1200px) {
