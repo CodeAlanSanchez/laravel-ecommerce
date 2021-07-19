@@ -18,6 +18,7 @@ Route::post('register', [App\Http\Controllers\UsersController::class, 'register'
 Route::post('login', [App\Http\Controllers\UsersController::class, 'authenticate']);
 Route::get('products', [App\Http\Controllers\ProductsController::class, 'index']);
 Route::get('products/{id}', [App\Http\Controllers\ProductsController::class, 'show']);
+Route::patch('products/{id}', [App\Http\Controllers\ProductsController::class, 'update']);
 
 Route::group(['middleware' => ['jwt.verify']], function () {
     Route::get('user', [App\Http\Controllers\UsersController::class, 'getAuthenticatedUser']);

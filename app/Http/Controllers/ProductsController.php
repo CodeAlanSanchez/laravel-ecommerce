@@ -25,6 +25,17 @@ class ProductsController extends Controller
         return $products;
     }
 
+    public function update(Request $request)
+    {
+        $product = Product::get($request->route('id'));
+
+        $updatedProduct = $product->update(
+            $request->all()
+        );
+
+        return response()->json(compact('updatedProduct'));
+    }
+
     public function store()
     {
         $data = request()->validate([

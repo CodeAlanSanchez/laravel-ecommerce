@@ -22,9 +22,7 @@ const index = ({ match, location }) => {
             .get("/api/products")
             .then((response) => {
                 setProduct(
-                    response.data.filter(
-                        (product) => product.id == productId
-                    )[0]
+                    response.data.filter((product) => product.id == productId)
                 );
                 console.log(
                     response.data.filter((product) => product.id == productId)
