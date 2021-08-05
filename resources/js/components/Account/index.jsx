@@ -27,6 +27,7 @@ const index = () => {
             })
             .then((response) => {
                 setProducts(response.data.products);
+                console.info(response.data.products);
                 setIsLoading(false);
             })
             .catch((error) => console.error(error));
@@ -73,9 +74,10 @@ const index = () => {
                 <div className="products">
                     <ProductForm />
                     {!isLoading ? (
-                        products.map((product) => (
-                            <Product key={product.id} product={product} />
-                        ))
+                        // products.map((product) => (
+                        //     <Product key={product.id} product={product} />
+                        // ))
+                        console.log(products)
                     ) : (
                         <h4>Loading...</h4>
                     )}

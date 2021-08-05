@@ -2279,6 +2279,7 @@ var index = function index() {
                 }
               }).then(function (response) {
                 setProducts(response.data.products);
+                console.info(response.data.products);
                 setIsLoading(false);
               })["catch"](function (error) {
                 return console.error(error);
@@ -2351,11 +2352,10 @@ var index = function index() {
         children: "Your Products"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
         className: "products",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Store_ProductForm__WEBPACK_IMPORTED_MODULE_5__.default, {}), !isLoading ? products.map(function (product) {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Store_ProductList_Product__WEBPACK_IMPORTED_MODULE_3__.default, {
-            product: product
-          }, product.id);
-        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h4", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Store_ProductForm__WEBPACK_IMPORTED_MODULE_5__.default, {}), !isLoading ? // products.map((product) => (
+        //     <Product key={product.id} product={product} />
+        // ))
+        console.log(products) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h4", {
           children: "Loading..."
         })]
       })]
