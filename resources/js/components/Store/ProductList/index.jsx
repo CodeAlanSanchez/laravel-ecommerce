@@ -11,6 +11,7 @@ const index = () => {
             .get("/api/products")
             .then((response) => {
                 setProducts(response.data);
+                console.log(response.data);
                 setLoading(false);
             })
             .catch((error) => console.error(error));
