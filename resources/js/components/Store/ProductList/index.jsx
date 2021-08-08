@@ -8,7 +8,7 @@ const index = () => {
 
     const fetchProducts = async () => {
         await axios
-            .get("/api/products")
+            .get("${process.env.REACT_APP_BASE_URL}/api/products")
             .then((response) => {
                 setProducts(response.data);
                 console.log(response.data);

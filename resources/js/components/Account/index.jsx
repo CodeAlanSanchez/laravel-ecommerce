@@ -20,7 +20,7 @@ const index = () => {
 
     const fetchProducts = async () => {
         await axios
-            .get(`api/${user?.id}/products`, {
+            .get(`${process.env.REACT_APP_BASE_URL}/api/${user?.id}/products`, {
                 headers: {
                     Authorization: `Bearer ${user?.token}`,
                 },

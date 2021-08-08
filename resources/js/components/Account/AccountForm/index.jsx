@@ -14,7 +14,7 @@ const index = () => {
 
     const signup = async () => {
         await axios
-            .post("/api/register", form)
+            .post("${process.env.REACT_APP_BASE_URL}/api/register", form)
             .then((response) => {
                 setUser({ ...response.data.user, token: response.data.token });
                 history.go(0);

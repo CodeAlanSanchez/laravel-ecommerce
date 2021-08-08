@@ -12,7 +12,7 @@ const index = ({ match, location }) => {
     } = match;
 
     const fetchProduct = (id) => {
-        axios.get("/api/products/" + id).then((response) => {
+        axios.get("${process.env.REACT_APP_BASE_URL}/api/products/" + id).then((response) => {
             setProduct(response.data.product);
             setLoading(false);
         });

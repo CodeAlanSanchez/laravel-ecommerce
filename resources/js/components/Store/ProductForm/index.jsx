@@ -14,7 +14,7 @@ const index = () => {
 
     const postForm = async () => {
         await axios
-            .post("/api/products", form, {
+            .post("${process.env.REACT_APP_BASE_URL}/api/products", form, {
                 headers: {
                     Authorization: `Bearer ${user?.token}`,
                 },
