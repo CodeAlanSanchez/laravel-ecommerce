@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 const index = () => {
+    const [user, setUser] = useState(
+        JSON.parse(localStorage.getItem("profile"))
+    );
+
     return (
         <nav>
             <ul>
@@ -27,7 +31,7 @@ const index = () => {
                 </li>
                 <li>
                     <NavLink activeClassName="active" to="/account">
-                        LOGIN / REGISTER
+                        {user?.email ? "ACCOUNT" : "LOGIN / REGISTER"}
                     </NavLink>
                 </li>
             </ul>
