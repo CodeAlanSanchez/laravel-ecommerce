@@ -74,10 +74,9 @@ const index = () => {
                 <div className="products">
                     <ProductForm />
                     {!isLoading ? (
-                        // products.map((product) => (
-                        //     <Product key={product.id} product={product} />
-                        // ))
-                        console.log(products)
+                        products.map((product) => (
+                            <Product key={product.id} product={product} />
+                        ))
                     ) : (
                         <h4>Loading...</h4>
                     )}
