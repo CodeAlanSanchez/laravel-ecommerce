@@ -22,7 +22,6 @@ const index = () => {
     };
 
     useEffect(() => {
-        console.log(onSale);
         fetchProducts();
     }, []);
 

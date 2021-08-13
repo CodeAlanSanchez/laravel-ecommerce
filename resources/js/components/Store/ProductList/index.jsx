@@ -11,7 +11,6 @@ const index = () => {
             .get("${process.env.REACT_APP_BASE_URL}/api/products")
             .then((response) => {
                 setProducts(response.data);
-                console.log(response.data);
                 setLoading(false);
             })
             .catch((error) => console.error(error));

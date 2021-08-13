@@ -24,9 +24,6 @@ const index = ({ match, location }) => {
                 setProduct(
                     response.data.filter((product) => product.id == productId)
                 );
-                console.log(
-                    response.data.filter((product) => product.id == productId)
-                );
                 setForm({
                     name: product?.name,
                     price: product?.price,
