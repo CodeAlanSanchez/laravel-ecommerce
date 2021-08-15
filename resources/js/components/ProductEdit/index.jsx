@@ -19,7 +19,7 @@ const index = ({ match, location }) => {
 
     const fetchProducts = async () => {
         await axios
-            .get("${process.env.REACT_APP_BASE_URL}/api/products")
+            .get("/api/products")
             .then((response) => {
                 setProduct(
                     response.data.filter((product) => product.id == productId)

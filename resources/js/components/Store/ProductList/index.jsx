@@ -8,7 +8,7 @@ const index = () => {
 
     const fetchProducts = async () => {
         await axios
-            .get("${process.env.REACT_APP_BASE_URL}/api/products")
+            .get("/api/products")
             .then((response) => {
                 setProducts(response.data);
                 setLoading(false);
@@ -23,9 +23,13 @@ const index = () => {
     return (
         <div className="productList">
             {!loading ? (
-                products.map((product) => (
-                    <Product key={product.id} product={product}></Product>
-                ))
+                products?.length > 0 ? (
+                    products.map((product) => (
+                        <Product key={product.id} product={product}></Product>
+                    ))
+                ) : (
+                    <p>No products currently in stock...</p>
+                )
             ) : (
                 <p>Loading...</p>
             )}
