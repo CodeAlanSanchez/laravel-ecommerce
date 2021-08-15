@@ -49,7 +49,7 @@ const index = ({ match, location }) => {
 
     return (
         <div className="edit">
-            {loading > 1 ? (
+            {loading ? (
                 <p>Loading...</p>
             ) : (
                 <div className="productForm">
