@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,12 +17,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('register', [App\Http\Controllers\UsersController::class, 'register']);
 Route::post('login', [App\Http\Controllers\UsersController::class, 'authenticate']);
-Route::get('products', [App\Http\Controllers\ProductsController::class, 'index']);
-Route::get('products/{id}', [App\Http\Controllers\ProductsController::class, 'show']);
-Route::patch('products/{id}', [App\Http\Controllers\ProductsController::class, 'update']);
+
+Route::apiResource('products', ProductsController::class);
 
 Route::group(['middleware' => ['jwt.verify']], function () {
     Route::get('user', [App\Http\Controllers\UsersController::class, 'getAuthenticatedUser']);
     Route::get('{id}/products', [App\Http\Controllers\ProductsController::class, 'productsByUser']);
-    Route::post('products', [App\Http\Controllers\ProductsController::class, 'store']);
+    // Route::post('products', [App\Http\Controllers\ProductsController::class, 'store']);
 });
