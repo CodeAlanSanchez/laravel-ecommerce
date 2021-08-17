@@ -20,20 +20,20 @@ class ProductsController extends Controller
 {
     public function index()
     {
-        $products = Product::all();
-
-        return $products;
+        return Product::paginate();
     }
 
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        $product = Product::get($request->route('id'));
+        $product = Product::find($id);
 
-        $updatedProduct = $product->update(
-            $request->all()
-        );
+        $product->update($request->only('name', 'price', 'discount', 'category'));
 
-        return response()->json(compact('updatedProduct'));
+        return response($product, 200);
+    }
+
+    public function edit(Request $request)
+    {
     }
 
     public function store()
@@ -68,16 +68,12 @@ class ProductsController extends Controller
             'discount' => $data['discount'],
         ]);
 
-        return response()->json(compact('product'));
+        return response($product, 201);
     }
 
-    public function show()
+    public function show($id)
     {
-        $id = request()->route('id');
-
-        $product = Product::find($id);
-
-        return response()->json(compact('product'));
+        return Product::find($id);
     }
 
     public function productsByUser(Request $request)
@@ -86,6 +82,6 @@ class ProductsController extends Controller
 
         $products = Product::where('user_id', $id)->get();
 
-        return response()->json(compact('products'));
+        return response($products, 200);
     }
 }
