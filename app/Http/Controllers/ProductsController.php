@@ -20,7 +20,7 @@ class ProductsController extends Controller
 {
     public function index()
     {
-        return Product::paginate();
+        return Product::all();
     }
 
     public function update(Request $request, $id)
@@ -30,10 +30,6 @@ class ProductsController extends Controller
         $product->update($request->only('name', 'price', 'discount', 'category'));
 
         return response($product, 200);
-    }
-
-    public function edit(Request $request)
-    {
     }
 
     public function store()
@@ -74,6 +70,13 @@ class ProductsController extends Controller
     public function show($id)
     {
         return Product::find($id);
+    }
+
+    public function delete($id)
+    {
+        Product::destroy($id);
+
+        return response(null, 200);
     }
 
     public function productsByUser(Request $request)
