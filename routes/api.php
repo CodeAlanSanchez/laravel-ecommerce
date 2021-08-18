@@ -23,5 +23,8 @@ Route::apiResource('products', ProductsController::class);
 Route::group(['middleware' => ['jwt.verify']], function () {
     Route::get('user', [App\Http\Controllers\UsersController::class, 'getAuthenticatedUser']);
     Route::get('{id}/products', [App\Http\Controllers\ProductsController::class, 'productsByUser']);
-    // Route::post('products', [App\Http\Controllers\ProductsController::class, 'store']);
+
+    Route::apiResource('products', PhotoController::class)->only([
+        'store', 'update', 'delete'
+    ]);
 });
