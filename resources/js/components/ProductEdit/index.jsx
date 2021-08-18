@@ -1,7 +1,9 @@
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 
 const index = ({ match, location }) => {
+    const history = useHistory();
     const [form, setForm] = useState({
         name: "",
         price: "",
@@ -19,16 +21,14 @@ const index = ({ match, location }) => {
 
     const fetchProducts = async () => {
         await axios
-            .get("/api/products")
+            .get(`/api/products/${productId}`)
             .then((response) => {
-                setProduct(
-                    response.data.filter((product) => product.id == productId)
-                );
+                setProduct(response.data);
                 setForm({
-                    name: product?.name,
-                    price: product?.price,
-                    discount: product?.discount,
-                    category: product?.category,
+                    name: response.data?.name,
+                    price: response.data?.price,
+                    discount: response.data?.discount,
+                    category: response.data?.category,
                 });
                 setLoading(false);
             })
@@ -38,9 +38,11 @@ const index = ({ match, location }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        axios.patch(`/api/products/${product.id}`, form, {
+        axios.patch(`/api/products/${productId}`, form, {
             headers: { Authorization: `Bearer ${user?.token}` },
         });
+
+        history.push(`/`);
     };
 
     useEffect(() => {

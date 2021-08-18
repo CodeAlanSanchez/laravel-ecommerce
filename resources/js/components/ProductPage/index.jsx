@@ -13,7 +13,7 @@ const index = ({ match, location }) => {
 
     const fetchProduct = (id) => {
         axios.get("/api/products/" + id).then((response) => {
-            setProduct(response.data.product);
+            setProduct(response.data);
             setLoading(false);
         });
     };

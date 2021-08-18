@@ -26,8 +26,7 @@ const index = () => {
                 },
             })
             .then((response) => {
-                setProducts(response.data.products);
-                console.info(response.data.products);
+                setProducts(response.data);
                 setIsLoading(false);
             })
             .catch((error) => console.error(error));
