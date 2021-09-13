@@ -14,7 +14,7 @@
 .productList {
     grid-area: products;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 400px));
+    grid-template-columns: repeat(auto-fit, minmax(.2fr, .33fr));
 }
 
 .shopHeader {
