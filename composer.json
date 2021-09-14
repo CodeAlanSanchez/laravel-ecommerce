@@ -15,7 +15,7 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.3",
         "tymon/jwt-auth": "dev-develop",
-        "ext-pdo_sqlite": "*"
+        "php7.4-sqlite3": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
