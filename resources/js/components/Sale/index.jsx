@@ -10,7 +10,6 @@ const index = () => {
         await axios
             .get("/api/products")
             .then((response) => {
-                console.log(response);
                 setOnSale(
                     response.data.filter((product) => product.discount > 0)
                 );
