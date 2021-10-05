@@ -1,6 +1,6 @@
 export const fetchCart = () => async (dispatch) => {
     try {
-        dispatch({ action: "FETCH_CART" });
+        dispatch({ type: "FETCH_CART", payload: null });
     } catch (error) {
         console.error(error);
     }
@@ -8,7 +8,7 @@ export const fetchCart = () => async (dispatch) => {
 
 export const addProduct = (data) => async (dispatch) => {
     try {
-        dispatch({ action: "ADD_PRODUCT", payload: data });
+        dispatch({ type: "ADD_PRODUCT", payload: data });
     } catch (error) {
         console.error(error);
     }
@@ -16,7 +16,7 @@ export const addProduct = (data) => async (dispatch) => {
 
 export const removeProduct = (id) => async (dispatch) => {
     try {
-        dispatch({ action: "REMOVE_PRODUCT", payload: id });
+        dispatch({ type: "REMOVE_PRODUCT", payload: id });
     } catch (error) {
         console.error(error);
     }
