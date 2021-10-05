@@ -1,6 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+import store from "./store";
 
 import Home from "./components/Home";
 import Account from "./components/Account";
@@ -14,29 +17,31 @@ import ProductEdit from "./components/ProductEdit";
 import "../css/app.css";
 
 ReactDOM.render(
-    <BrowserRouter>
-        <div>
-            <Navbar />
+    <Provider store={store}>
+        <BrowserRouter>
+            <div>
+                <Navbar />
 
-            <Switch>
-                <Route exact path="/" component={Home} />
-                <Route path="/support" component={Support} />
-                <Route path="/orders" component={Orders} />
-                <Route path="/cart" component={Cart} />
-                <Route path="/account" component={Account} />
-                <Route path="/sale" component={Sale} />
-                <Route
-                    path="/product/:productId"
-                    exact
-                    component={ProductPage}
-                />
-                <Route
-                    path="/product/:productId/edit"
-                    exact
-                    component={ProductEdit}
-                />
-            </Switch>
-        </div>
-    </BrowserRouter>,
+                <Switch>
+                    <Route exact path="/" component={Home} />
+                    <Route path="/support" component={Support} />
+                    <Route path="/orders" component={Orders} />
+                    <Route path="/cart" component={Cart} />
+                    <Route path="/account" component={Account} />
+                    <Route path="/sale" component={Sale} />
+                    <Route
+                        path="/product/:productId"
+                        exact
+                        component={ProductPage}
+                    />
+                    <Route
+                        path="/product/:productId/edit"
+                        exact
+                        component={ProductEdit}
+                    />
+                </Switch>
+            </div>
+        </BrowserRouter>
+    </Provider>,
     document.getElementById("root")
 );
