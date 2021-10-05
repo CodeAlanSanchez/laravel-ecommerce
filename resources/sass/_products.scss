@@ -12,13 +12,6 @@
     .name {
         color: $textColor;
     }
-    .price {
-        color: $primary;
-        &.old {
-            color: $oldPrice;
-            text-decoration: line-through;
-        }
-    }
     &:hover {
         background: $foreground;
         box-shadow: 0 0 25px 2px #00000020;
@@ -76,13 +69,6 @@
             width: 50%;
         }
     }
-    .price {
-        color: $primary;
-        &.old {
-            color: $oldPrice;
-            text-decoration: line-through;
-        }
-    }
     .info {
         padding: 5%;
         background: $foreground;
@@ -114,4 +100,12 @@
 
 .sale {
     padding: 2%;
+}
+
+.price {
+    color: $primary;
+    &.old {
+        color: $oldPrice;
+        text-decoration: line-through;
+    }
 }

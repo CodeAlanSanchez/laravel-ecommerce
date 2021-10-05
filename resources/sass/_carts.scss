@@ -1,0 +1,20 @@
+
+.cartItems {
+    display: grid;
+    // grid-template-rows: repeat(auto-fill, minmax(40px, .5fr));
+    width: 50vw;
+}
+
+.cartItem {
+    display: grid;
+    grid-template-columns: 30% 30% 20% 20%;
+    padding-bottom: 25px;
+    width: 100%;
+    border-bottom: 1px solid #000000;
+    img {
+        width: 50%;
+    }
+    .name {
+        padding-left: 25px;
+    }
+}
