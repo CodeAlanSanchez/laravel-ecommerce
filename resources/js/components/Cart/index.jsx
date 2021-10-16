@@ -8,7 +8,7 @@ const index = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(fetchCart);
+        dispatch(fetchCart());
     }, []);
 
     return (
