@@ -13,7 +13,7 @@ const index = ({ product }) => {
             ) : (
                 <p className="price">${product.price}</p>
             )}
-            <p>{product.amount}</p>
+            <p>x {product.amount}</p>
         </div>
     );
 };
