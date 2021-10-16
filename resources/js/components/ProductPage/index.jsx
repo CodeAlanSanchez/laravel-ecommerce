@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { addProduct } from "../../actions/cart";
+import { addProduct, fetchCart } from "../../actions/cart";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -25,6 +25,7 @@ const index = ({ match, location }) => {
 
     useEffect(() => {
         fetchProduct(productId);
+        dispatch(fetchCart());
     }, []);
 
     const handleSubmit = (e) => {
