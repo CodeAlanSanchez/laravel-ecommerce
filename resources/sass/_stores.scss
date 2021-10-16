@@ -1,9 +1,9 @@
 .store {
     display: grid;
-    grid-template-columns: 0.25fr 1fr;
+    grid-template-columns: 1fr;
     grid-template-areas:
-        "header header"
-        "products products";
+        "header"
+        "products";
     padding: 25px;
 }
 
@@ -14,7 +14,8 @@
 .productList {
     grid-area: products;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(.2fr, .33fr));
+    grid-template-columns: repeat(auto-fill, minmax(240px, 0.1fr));
+    padding: 0 15%;
 }
 
 .shopHeader {
