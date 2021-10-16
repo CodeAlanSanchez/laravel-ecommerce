@@ -9,7 +9,7 @@ const index = () => {
         password: "",
         password_confirmation: "",
     });
-    const [register, setRegister] = useState(true);
+    const [register, setRegister] = useState(false);
     const history = useHistory();
 
     const signup = async () => {
@@ -120,6 +120,22 @@ const index = () => {
                     <button className="primary" type="submit">
                         {register ? "Register" : "Log In"}
                     </button>
+                    {!register ? (
+                        <button
+                            className="primary outline sm"
+                            type="submit"
+                            onClick={() =>
+                                setForm({
+                                    email: "guest",
+                                    password: "guest",
+                                })
+                            }
+                        >
+                            Continue as Guest
+                        </button>
+                    ) : (
+                        ""
+                    )}
                     <button
                         className="sm center link text"
                         type="button"
