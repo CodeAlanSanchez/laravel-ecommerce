@@ -1,6 +1,8 @@
 export const fetchCart = () => async (dispatch) => {
     try {
-        dispatch({ type: "FETCH_CART", payload: null });
+        const data = JSON.parse(localStorage.getItem("cart"));
+
+        dispatch({ type: "FETCH_CART", payload: data });
     } catch (error) {
         console.error(error);
     }
