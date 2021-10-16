@@ -3,7 +3,6 @@ import React from "react";
 const index = ({ product }) => {
     return (
         <div className="cartItem">
-            {console.log(product)}
             <img src={product.image} alt={product.name} style={{}} />
             <h5>{product.name}</h5>
             {product.discount > 0 ? (
