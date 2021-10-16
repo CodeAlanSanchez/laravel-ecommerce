@@ -122,7 +122,7 @@ const index = () => {
                     </button>
                     {!register ? (
                         <button
-                            className="primary outline sm"
+                            className="primary outline"
                             type="submit"
                             onClick={() =>
                                 setForm({
