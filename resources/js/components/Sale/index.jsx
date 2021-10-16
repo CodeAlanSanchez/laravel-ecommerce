@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Product from "../Store/ProductList/Product";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { fetchCart } from "../../actions/cart";
 
 const index = () => {
+    const dispatch = useDispatch();
     const [onSale, setOnSale] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -22,6 +25,7 @@ const index = () => {
 
     useEffect(() => {
         fetchProducts();
+        dispatch(fetchCart());
     }, []);
 
     return (
